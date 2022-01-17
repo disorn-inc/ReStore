@@ -16,6 +16,7 @@ export default function ProductDetails() {
     const {status: productStatus} = useAppSelector(state => state.catalog);
     const [quantity, setQuantity] = useState(0);
     const item = basket?.items.find(i => i.productId === product?.id);
+    console.log(basket?.items);
 
     useEffect(() => {
         if (item) setQuantity(item.quantity);
@@ -31,7 +32,8 @@ export default function ProductDetails() {
     function handleUpdateCart() {
         if (!item || quantity > item.quantity) {
             const updateQuantity = item ? quantity - item.quantity : quantity;
-            dispatch(addBasketItemAsync({productId: item?.productId!, quantity: updateQuantity}));
+            // console.log(item)
+            dispatch(addBasketItemAsync({productId: product?.id!, quantity: updateQuantity}));
         } else {
             const updateQuantity = item.quantity - quantity;
             dispatch(removeBasketItemAsync({productId: item?.productId!, quantity: updateQuantity}));
