@@ -16,7 +16,7 @@ export default function ProductDetails() {
     const {status: productStatus} = useAppSelector(state => state.catalog);
     const [quantity, setQuantity] = useState(0);
     const item = basket?.items.find(i => i.productId === product?.id);
-    console.log(basket?.items);
+    // console.log(basket?.items);
 
     useEffect(() => {
         if (item) setQuantity(item.quantity);
