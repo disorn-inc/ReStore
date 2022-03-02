@@ -4,7 +4,7 @@ import { history } from "../..";
 
 const sleep = () => new Promise(resolve => setTimeout(resolve, 500));
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = "http://localhost:5001/api/";
 axios.defaults.withCredentials = true;
 
 const responseBody = (response: AxiosResponse) => response.data;
@@ -51,7 +51,8 @@ const requests = {
 
 const Catalog = {
     list: () => requests.get('products'),
-    detail: (id: number) => requests.get(`products/${id}`)
+    detail: (id: number) => requests.get(`products/${id}`),
+    fetchFilters: () => requests.get('products/filters'),
 }
 
 const Basket = {
