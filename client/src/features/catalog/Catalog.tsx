@@ -59,7 +59,7 @@ export default function Catalog() {
                 <Paper sx={{mb: 2, p: 2}}>
                 <FormGroup>
                     {types.map((type) => (
-                        <FormControlLabel control={<Checkbox />} label={type} />
+                        <FormControlLabel control={<Checkbox />} label={type} key={type} />
                     ))}
                 </FormGroup>
                 </Paper>
